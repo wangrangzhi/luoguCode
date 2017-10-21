@@ -10,7 +10,7 @@ int main()
 	int k = 0;
 	cin >> k ;
 	
-	double sn = 0.0000;
+	double sn = 0;
 	int n = 0;
 	
 	while( sn <= k)
