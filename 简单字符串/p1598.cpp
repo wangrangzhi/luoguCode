@@ -12,12 +12,11 @@ void printTheResult(string passage[4]) {
 	int alphabet[30];
 	for(int i = 0; i <26; i++) {
 		alphabet[i] = 0      ;
-		//	cout << (char)alphabet[i];
 	}
 
 	for(int i = 0; i <4; i++) {
 		for(int j = 0; j<passage[i].size(); j++) {
-			//cout <<	passage[i][j] << "\n";
+		//	cout <<	passage[i][j] << "\n";
 			int theLeft = passage[i][j] - 'A';
 			if(theLeft>=0 && theLeft <= 25)
 				alphabet[theLeft]++;
@@ -28,12 +27,13 @@ void printTheResult(string passage[4]) {
 	int big = alphabet[0];
 	for(int i = 0; i <26; i++) {
 
+		if(big < alphabet[i]) {
+			big = alphabet[i];
+		}
 		if(i == 25)
 			break;
 
-		if(alphabet[i] < alphabet[i+1]) {
-			big = alphabet[i+1];
-		}
+		
 	}
 
 
