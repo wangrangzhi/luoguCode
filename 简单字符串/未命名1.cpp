@@ -17,7 +17,7 @@ int main()
 //	cout << 'A' - 'A';
 //	cout << "\n" << 'A' - 'a';
 //	cout << "\n" << 'y' - 'Y';
-//	cout << "\n" << 'a' - 'a';
+	cout << "\n" << (char)('b' - 1);
 	return 0;
  }
 

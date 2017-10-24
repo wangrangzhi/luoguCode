@@ -16,8 +16,23 @@ int main() {
 	
 	cin >> a;
 	
+	b %= 26;
 	
-	
+	for(int i = 0; i<a.size(); i++)
+	{
+		if(b == 0)
+			break;
+			
+		if(a[i] + b > 122)
+		{
+			a[i] = a[i] + b - 26;
+		}else
+		{
+			a[i] += b;
+		}
+	} 
+	 
+	cout << a;
 	 
 	
 	return 0;
