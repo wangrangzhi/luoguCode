@@ -9,6 +9,27 @@ struct salePlan
 	
 };
 
+void callTheLast(salePlan start,int highPriceLowMnount,salePlan leftPlan[],int left, int cost)
+{
+	for(int i = 0; i<left; i++)
+	{	
+		if(i == 0)
+		{
+			leftPlan[0].price = start.price;
+			leftPlan[0].priceSale = start.priceSale;
+			leftPlan[0].profit = (start.price - cost) * start.priceSale;
+		}else
+		{
+			leftPlan[i].price = start.price+i;
+			leftPlan[i].priceSale = start.priceSale - i * highPriceLowMnount;
+			leftPlan[i].profit = (leftPlan[i].price - cost) *leftPlan[i].priceSale; 
+		}
+		
+	}
+} 
+
+
+
 bool moreCheck(const salePlan &lhs, const salePlan &rhs) {
 	return lhs.price > rhs.price;//jiang–Ú 
 }
@@ -111,10 +132,24 @@ int main() {
 	
 	
 	
+	int left= shengxuwanzheng[start-1].priceSale/highPriceLowMnount;
+	
+	salePlan leftPlan[left];
+	
+	
+	callTheLast(shengxuwanzheng[start-1], highPriceLowMnount, leftPlan, left, cost);
+	
+	
+	
 	
 	for(int i = 0; i<save[0].price-cost; i++)
 	{
 		cout << lowThanHigh[i].price << " " << lowThanHigh[i].priceSale << " " << lowThanHigh[i].profit << "\n";
+	}
+
+	for(int i = 0; i<left; i++)
+	{
+		cout << leftPlan[i].price << " " << leftPlan[i].priceSale << " " << leftPlan[i].profit << "\n";
 	}
 
 
