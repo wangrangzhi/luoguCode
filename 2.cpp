@@ -1,42 +1,62 @@
 #include<iostream>
 #include<cstdio>
+#include<cmath>
+#include<cstring>
+#include<string>
 using namespace std;
 
-int n, ans1; ans2[10001][11], sum, a[11];
-
-void trys(int t, int m)
-{
-	if(t>10)
-	{
-		if(m == n)
-		{
-			ans1++;
-			for(int i = 1; i<=10; i++)
-				ans2[ans1][i] = a[i];
-		}
-		return ;
-	}
-	for(int i = 1; i<=3; i++)
-	{
-		if(m+i>n)
-			break;
-
-		a[t] = i;
-		trys(t+1, m+i);
-		a[t] = 0;
-	}
-}
-
+char ch;
+int a[1000000] = {0};
 int main()
 {
-	cin >> n;
-	trys(1, 0);
-	cout << ans1<<endl;
+	int n, i = 0, j, m;
 
-	for(int i = 1; i<=ans1; i++)
+	cin >> ch;
+
+	while(ch != 'E')
 	{
-		
+		i++;
+		a[i] = ch;
+		cin >> ch;
 	}
+
+	m = n = 0;
+
+	for(j = 1; j<=i; j++)
+	{
+		if(a[j] == W)
+			n++;
+		else if(a[j] == 'L')
+			m++;
+
+		if((m>= 11 || n>=11)  && (abs(m-n)>=2))
+		{
+			cout << n << ':' << m << endl;
+			m=n=0;
+		}
+	}
+	cout << n << ':' << m << endl;
+	cout << endl;
+	m=n=0;
+
+
+
+	for(j = 1; j<=i; j++)
+	{
+		if(a[j] == W)
+			n++;
+		else if(a[j] == 'L')
+			m++;
+
+		if((m>= 21 || n>=21)  && (abs(m-n)>=2))
+		{
+			cout << n << ':' << m << endl;
+			m=n=0;
+		}
+	}
+	cout << n << ':' << m << endl;
+
+
 
 	return 0;
 }
